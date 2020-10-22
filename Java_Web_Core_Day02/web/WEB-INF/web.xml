@@ -84,4 +84,23 @@
         <servlet-name>ServletDemo7</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo8</servlet-name>
+        <servlet-class>Demo8.Demo8</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo8</servlet-name>
+        <url-pattern>/demo8</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo9</servlet-name>
+        <servlet-class>Demo9.Demo9</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo9</servlet-name>
+        <url-pattern>/demo9</url-pattern>
+    </servlet-mapping>
 </web-app>
