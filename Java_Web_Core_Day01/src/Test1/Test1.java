@@ -1,9 +1,9 @@
-package Test;
+package Test1;
 
 import javax.servlet.*;
 import java.io.IOException;
 
-public class Test implements Servlet {
+public class Test1 implements Servlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
 

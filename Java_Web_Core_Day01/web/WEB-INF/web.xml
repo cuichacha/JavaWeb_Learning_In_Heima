@@ -5,12 +5,22 @@
          version="3.1">
     
     <servlet>
-        <servlet-name>ServletDemo</servlet-name>
-        <servlet-class>Test.Test</servlet-class>
+        <servlet-name>ServletDemo1</servlet-name>
+        <servlet-class>Test1.Test1</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ServletDemo</servlet-name>
-        <url-pattern>/ServletDemo</url-pattern>
+        <servlet-name>ServletDemo1</servlet-name>
+        <url-pattern>/ServletDemo1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo2</servlet-name>
+        <servlet-class>Test2.Test2</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ServletDemo2</servlet-name>
+        <url-pattern>/ServletDemo2</url-pattern>
     </servlet-mapping>
 </web-app>
