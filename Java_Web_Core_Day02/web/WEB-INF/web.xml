@@ -103,4 +103,48 @@
         <servlet-name>ServletDemo9</servlet-name>
         <url-pattern>/demo9</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo10</servlet-name>
+        <servlet-class>Demo10.Demo10</servlet-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Description</param-name>
+            <param-value>ServletConfig</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo10</servlet-name>
+        <url-pattern>/demo10</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ServletDemo11</servlet-name>
+        <servlet-class>Demo11.Demo11</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo11</servlet-name>
+        <url-pattern>/demo11</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>GlobalEncoding</param-name>
+        <param-value>UTF-8</param-value>
+    </context-param>
+    <context-param>
+        <param-name>GlobalDescription</param-name>
+        <param-value>ServletContext</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>ServletDemo12</servlet-name>
+        <servlet-class>Demo12.Demo12</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo12</servlet-name>
+        <url-pattern>/demo12</url-pattern>
+    </servlet-mapping>
 </web-app>
