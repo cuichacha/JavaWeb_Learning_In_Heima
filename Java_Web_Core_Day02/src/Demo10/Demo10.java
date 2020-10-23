@@ -28,8 +28,6 @@ public class Demo10 extends HttpServlet {
 
         System.out.println(servletConfig.getServletName());
 
-        ServletContext servletContext = servletConfig.getServletContext();
-        System.out.println(servletContext.getAttribute("username"));
     }
 
     @Override
