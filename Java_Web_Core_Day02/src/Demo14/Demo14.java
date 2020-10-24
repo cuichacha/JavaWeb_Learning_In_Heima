@@ -17,6 +17,7 @@ public class Demo14 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html;charset=utf-8");
 
         Map<String, String[]> parameterMap = req.getParameterMap();
 
@@ -35,7 +36,8 @@ public class Demo14 extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/Java_Web_Core_Day02/SaveSuccess.html");
+        resp.getWriter().println("保存成功！");
+
 
     }
 }
