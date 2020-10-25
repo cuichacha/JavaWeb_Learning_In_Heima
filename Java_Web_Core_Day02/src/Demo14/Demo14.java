@@ -41,9 +41,10 @@ public class Demo14 extends HttpServlet {
         resp.getWriter().println("保存成功！");
         resp.setHeader("refresh", "2;url=/Java_Web_Core_Day02/SaveStu.html");
 
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("/Users/willdufresne/Documents/Programming/Source_Codes/Java_Learning_In_Heima/Learn_Java_Web/Java_Web_Core_Day02/src/Demo14/Stu.txt"));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("/Users/willdufresne/Documents/Programming/Source_Codes/Java_Learning_In_Heima/Learn_Java_Web/Java_Web_Core_Day02/src/Demo14/Stu.txt", true));
         for (Student student : list) {
             bufferedWriter.write(student.getName() + "," + student.getAge() + "," + student.getScore());
+            bufferedWriter.newLine();
         }
         bufferedWriter.close();
     }
