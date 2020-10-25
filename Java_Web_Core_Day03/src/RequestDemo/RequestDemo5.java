@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-@WebServlet("/demo5")
+@WebServlet("/RequestDemo5")
 public class RequestDemo5 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

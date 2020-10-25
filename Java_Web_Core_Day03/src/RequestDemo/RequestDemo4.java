@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/demo4")
+@WebServlet("/RequestDemo4")
 public class RequestDemo4 extends HttpServlet {
     private ArrayList<Student> list = new ArrayList<>();
     @Override

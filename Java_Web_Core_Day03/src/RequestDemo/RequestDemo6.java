@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-@WebServlet("/demo6")
+@WebServlet("/RequestDemo6")
 public class RequestDemo6 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
