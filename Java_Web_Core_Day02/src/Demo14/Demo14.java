@@ -5,6 +5,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -32,12 +34,17 @@ public class Demo14 extends HttpServlet {
             }
             System.out.println(student);
             list.add(student);
-        } catch (InstantiationException | IllegalAccessException | NoSuchFieldException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         resp.getWriter().println("保存成功！");
+        resp.setHeader("refresh", "2;url=/Java_Web_Core_Day02/SaveStu.html");
 
-
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("/Users/willdufresne/Documents/Programming/Source_Codes/Java_Learning_In_Heima/Learn_Java_Web/Java_Web_Core_Day02/src/Demo14/Stu.txt"));
+        for (Student student : list) {
+            bufferedWriter.write(student.getName() + "," + student.getAge() + "," + student.getScore());
+        }
+        bufferedWriter.close();
     }
 }
