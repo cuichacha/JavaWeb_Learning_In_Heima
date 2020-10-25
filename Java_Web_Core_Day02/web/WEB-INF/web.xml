@@ -58,32 +58,32 @@
         <url-pattern>/demo6</url-pattern>
     </servlet-mapping>
 
-<!--    <servlet>-->
-<!--        <servlet-name>ServletDemo66</servlet-name>-->
-<!--        <servlet-class>Demo6.Demo6</servlet-class>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>ServletDemo66</servlet-name>-->
-<!--        <url-pattern>/*</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <!--    <servlet>-->
+    <!--        <servlet-name>ServletDemo66</servlet-name>-->
+    <!--        <servlet-class>Demo6.Demo6</servlet-class>-->
+    <!--    </servlet>-->
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>ServletDemo66</servlet-name>-->
+    <!--        <url-pattern>/*</url-pattern>-->
+    <!--    </servlet-mapping>-->
 
-<!--    <servlet>-->
-<!--        <servlet-name>ServletDemo666</servlet-name>-->
-<!--        <servlet-class>Demo6.Demo6</servlet-class>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>ServletDemo666</servlet-name>-->
-<!--        <url-pattern>*.la</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <!--    <servlet>-->
+    <!--        <servlet-name>ServletDemo666</servlet-name>-->
+    <!--        <servlet-class>Demo6.Demo6</servlet-class>-->
+    <!--    </servlet>-->
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>ServletDemo666</servlet-name>-->
+    <!--        <url-pattern>*.la</url-pattern>-->
+    <!--    </servlet-mapping>-->
 
-<!--    <servlet>-->
-<!--        <servlet-name>ServletDemo7</servlet-name>-->
-<!--        <servlet-class>Demo7.Demo7</servlet-class>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>ServletDemo7</servlet-name>-->
-<!--        <url-pattern>/*</url-pattern>-->
-<!--    </servlet-mapping>-->
+        <servlet>
+            <servlet-name>ServletDemo7</servlet-name>
+            <servlet-class>Demo7.Demo7</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ServletDemo7</servlet-name>
+            <url-pattern>/*</url-pattern>
+        </servlet-mapping>
 
     <servlet>
         <servlet-name>ServletDemo8</servlet-name>
