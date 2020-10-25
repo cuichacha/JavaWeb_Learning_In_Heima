@@ -7,11 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/ResponseDemo6")
-public class ResponseDemo6 extends HttpServlet {
+@WebServlet("/ResponseDemo7")
+public class ResponseDemo7 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("name", "value");
         String contextPath = getServletContext().getContextPath();
-        resp.setHeader("refresh", "2;url=" + contextPath + "/ResponseDemo5");
+        resp.sendRedirect(contextPath + "/ResponseDemo8");
     }
 }

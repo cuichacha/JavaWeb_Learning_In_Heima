@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLDecoder;
 
 @WebServlet("/RequestDemo9")
 public class RequestDemo9 extends HttpServlet {
@@ -17,7 +18,8 @@ public class RequestDemo9 extends HttpServlet {
         int len;
         byte[] bytes = new byte[1024];
         while ((len = inputStream.read(bytes)) != -1) {
-            System.out.println(new String(bytes, 0, len));
+            String decode = URLDecoder.decode(new String(bytes, 0, len), "UTF-8");
+            System.out.println(decode);
         }
     }
 }
