@@ -28,7 +28,7 @@ public class AddStudents extends HttpServlet {
         int score = Integer.parseInt(req.getParameter("score"));
         if (age < 6 || age > 30 || score < 0 || score > 100) {
             resp.getWriter().println("数据有误，2秒后跳转到首页，请重新输入");
-            resp.setHeader("refresh", "2;url=http://localhost:8080/Java_Web_Core_Day03/HomePage.html");
+            resp.setHeader("refresh", "2;url=/Java_Web_Core_Day03/HomePage.html");
         } else {
             Map<String, String[]> parameterMap = req.getParameterMap();
             Student student = new Student();
@@ -52,7 +52,7 @@ public class AddStudents extends HttpServlet {
             }
             bufferedWriter.close();
             resp.getWriter().println("添加成功，2秒后自动跳转到首页");
-            resp.setHeader("refresh", "2;url=http://localhost:8080/Java_Web_Core_Day03/HomePage.html");
+            resp.setHeader("refresh", "2;url=/Java_Web_Core_Day03/HomePage.html");
         }
     }
 }
