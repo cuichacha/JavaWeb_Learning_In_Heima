@@ -19,7 +19,7 @@ public class ResponseDemo9 extends HttpServlet {
         String filename = req.getParameter("filename");
         String encode = URLEncoder.encode(filename);
         ServletContext servletContext = getServletContext();
-//        resp.setHeader("content-type", servletContext.getMimeType(encode));
+        resp.setHeader("content-type", servletContext.getMimeType(encode));
         resp.setHeader("content-disposition", "attachment;filename=" + encode);
         InputStream resourceAsStream = servletContext.getResourceAsStream("/downloads/" + encode);
         ServletOutputStream outputStream = resp.getOutputStream();

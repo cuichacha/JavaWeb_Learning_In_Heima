@@ -1,4 +1,4 @@
-package AddStudents;
+package StudentManagement1;
 
 public class Student {
     private String name;

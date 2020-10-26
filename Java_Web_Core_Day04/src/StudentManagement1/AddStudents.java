@@ -1,4 +1,4 @@
-package AddStudents;
+package StudentManagement1;
 
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -15,7 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Map;
 
-@WebServlet("/AddStudents")
+@WebServlet("/StudentManagement1/AddStudents")
 public class AddStudents extends HttpServlet {
     private ArrayList<Student> list = new ArrayList<>();
 
@@ -27,7 +27,7 @@ public class AddStudents extends HttpServlet {
         int score = Integer.parseInt(req.getParameter("score"));
         if (age < 6 || age > 30 || score < 0 || score > 100) {
             resp.getWriter().println("数据有误，2秒后跳转到首页，请重新输入");
-            resp.setHeader("refresh", "2;url=/Java_Web_Core_Day03/HomePage.html");
+            resp.setHeader("refresh", "2;url=/Java_Web_Core_Day04/StudentManagement1/HomePage.jsp");
         } else {
             Map<String, String[]> parameterMap = req.getParameterMap();
             Student student = new Student();
@@ -37,21 +37,18 @@ public class AddStudents extends HttpServlet {
             } catch (IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
             }
+
             list.add(student);
             ServletContext servletContext = getServletContext();
             String realPath = servletContext.getRealPath("/StuInfo.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(realPath, true));
             for (Student addStudent : list) {
-                try {
-                    bufferedWriter.write(addStudent.getName() + "," + addStudent.getAge() + "," + addStudent.getScore());
-                    bufferedWriter.newLine();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                bufferedWriter.write(addStudent.getName() + "," + addStudent.getAge() + "," + addStudent.getScore());
+                bufferedWriter.newLine();
             }
             bufferedWriter.close();
             resp.getWriter().println("添加成功，2秒后自动跳转到首页");
-            resp.setHeader("refresh", "2;url=/Java_Web_Core_Day03/HomePage.html");
+            resp.setHeader("refresh", "2;url=/Java_Web_Core_Day04/StudentManagement1/HomePage.jsp");
         }
     }
 }
