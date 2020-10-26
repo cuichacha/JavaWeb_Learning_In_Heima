@@ -11,6 +11,12 @@
     <title>HomePage</title>
 </head>
 <body>
+<%!
+    public void decidePage() {
+        
+    }
+%>
+
 <%
     Cookie cookie = new Cookie("name", "value");
     cookie.setMaxAge(60);
@@ -22,10 +28,8 @@
                 request.getRequestDispatcher("/AddStudents.html").forward(request, response);
             }
         }
-        request.getRequestDispatcher("/Login.html").forward(request, response);
-    } else {
-        request.getRequestDispatcher("/Login.html").forward(request, response);
     }
+    request.getRequestDispatcher("/Login.html").forward(request, response);
 %>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package AddStudents;
+package StudentManagement;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -24,6 +24,6 @@ public class ShowStudents extends HttpServlet {
             resp.getWriter().write("<br>");
         }
         bufferedReader.close();
-        resp.getWriter().write("<a href=\"/Java_Web_Core_Day03/HomePage.html\">回到首页</a>");
+        resp.getWriter().write("<a href=\"/Java_Web_Core_Day03/StudentManagement/HomePage.html\">回到首页</a>");
     }
 }
