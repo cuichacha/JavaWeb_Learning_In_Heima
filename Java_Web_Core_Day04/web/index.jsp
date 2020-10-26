@@ -7,10 +7,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+</head>
+<body>
+<%
+    Cookie cookie = new Cookie("name", "value");
+    cookie.setMaxAge(300);
+    response.addCookie(cookie);
+    Cookie[] cookies = request.getCookies();
+    for (Cookie newCookie : cookies) {
+        if (newCookie.getName().equals(cookie.getName()) && newCookie.getValue().equals(cookie.getValue())) {
+            request.getRequestDispatcher("/AddStudents.html").forward(request, response);
+        }
+    }
+    request.getRequestDispatcher("/Login.html").forward(request, response);
+%>
+</body>
 </html>
