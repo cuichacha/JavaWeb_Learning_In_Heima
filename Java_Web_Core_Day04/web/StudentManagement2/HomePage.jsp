@@ -12,13 +12,22 @@
 </head>
 <body>
 <%
-    ServletContext servletContext = getServletConfig().getServletContext();
-    Object isLogin = servletContext.getAttribute("isLogin");
-    if (isLogin.equals(true)) {
-        response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/AddStudents.html\">添加学生</a>");
-        response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/ShowStudents.jsp\">查看学生</a>");
+    Cookie[] cookies = request.getCookies();
+    Cookie temp = null;
+    if (cookies == null) {
+        response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/Login.jsp\">请先登录</a>");
     } else {
-        response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/Login.html\">请先登录</a>");
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("isLogin") && cookie.getValue().equals("true")) {
+                temp = cookie;
+            }
+        }
+        if (temp != null) {
+            response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/AddStudents.html\">添加学生</a>");
+            response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/ShowStudents.jsp\">查看学生</a>");
+        } else {
+            response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/Login.jsp\">请先登录</a>");
+        }
     }
 %>
 </body>

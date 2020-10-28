@@ -12,5 +12,10 @@
 </head>
 <body>
 $END$
+
+    <c:if test="${cookie.login.value}">
+
+    </c:if>c>
+
 </body>
 </html>
