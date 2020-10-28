@@ -28,7 +28,8 @@ public class ShowStudents extends HttpServlet {
             Student student = new Student(split[0], split[1], split[2]);
             list.add(student);
         }
-        servletContext.setAttribute("StudentList", list);
-        req.getRequestDispatcher("/Java_Web_Core_Day04/StudentManagement2/ShowStudents.jsp").include(req, resp);
+        bufferedReader.close();
+        req.setAttribute("StudentList", list);
+        req.getRequestDispatcher("/StudentManagement2/ShowStudents.jsp").include(req, resp);
     }
 }

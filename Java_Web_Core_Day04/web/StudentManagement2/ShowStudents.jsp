@@ -20,19 +20,21 @@
     </tr>
 
     <%
-        Object studentList = getServletConfig().getServletContext().getAttribute("StudentList");
+        Object studentList = request.getAttribute("StudentList");
         ArrayList<Student> list = (ArrayList<Student>) studentList;
         for (Student student : list) {
     %>
     <tr align="center">
-        <td><%student.getName();%></td>
-        <td><%student.getAge();%></td>
-        <td><%student.getScore();%></td>
+        <td><%out.write(student.getName());%></td>
+        <td><%out.write(student.getAge());%></td>
+        <td><%out.write(student.getScore());%></td>
     </tr>
     <%
         }
     %>
-
+    <%
+        out.write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/HomePage.jsp\">返回首页</a>");
+    %>
 
 </table>
 

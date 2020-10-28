@@ -24,7 +24,7 @@
         }
         if (temp != null) {
             response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/AddStudents.html\">添加学生</a>");
-            response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/ShowStudents.jsp\">查看学生</a>");
+            response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/ShowStudents\">查看学生</a>");
         } else {
             response.getWriter().write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/Login.jsp\">请先登录</a>");
         }
