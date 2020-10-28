@@ -32,11 +32,10 @@
     <%
         }
     %>
-    <%
-        out.write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/HomePage.jsp\">返回首页</a>");
-    %>
 
 </table>
-
+<%
+    out.write("<a href=\"/Java_Web_Core_Day04/StudentManagement2/HomePage.jsp\">返回首页</a>");
+%>
 </body>
 </html>
