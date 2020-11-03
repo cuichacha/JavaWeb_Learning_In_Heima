@@ -1,21 +1,21 @@
 package Day01.Code.Domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Student {
     private Integer sid;
     private String name;
     private Integer age;
-    private Date date;
+    private Date birthday;
 
     public Student() {
     }
 
-    public Student(Integer sid, String name, Integer age, Date date) {
+    public Student(Integer sid, String name, Integer age, Date birthday) {
         this.sid = sid;
         this.name = name;
         this.age = age;
-        this.date = date;
+        this.birthday = birthday;
     }
 
     public Integer getSid() {
@@ -42,12 +42,12 @@ public class Student {
         this.age = age;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Student {
                 "sid=" + sid +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", date=" + date +
+                ", birthday=" + birthday +
                 '}';
     }
 }

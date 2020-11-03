@@ -28,7 +28,7 @@ import org.apache.tomcat.util.res.StringManager;
 import org.apache.tomcat.util.security.PermissionCheck;
 
 /**
- * Utils for introspection and reflection
+ * Day01.Code.Utils for introspection and reflection
  */
 public final class IntrospectionUtils {
 

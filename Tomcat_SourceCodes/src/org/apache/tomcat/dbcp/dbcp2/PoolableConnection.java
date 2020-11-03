@@ -302,7 +302,7 @@ public class PoolableConnection extends DelegatingConnection<Connection> impleme
      * If {@link #disconnectionSqlCodes} has been set, sql states are compared to those in the
      * configured list of fatal exception codes. If this property is not set, codes are compared against the default
      * codes in {@link Utils#DISCONNECTION_SQL_CODES} and in this case anything starting with #{link
-     * Utils.DISCONNECTION_SQL_CODE_PREFIX} is considered a disconnection.
+     * Day01.Code.Utils.DISCONNECTION_SQL_CODE_PREFIX} is considered a disconnection.
      * </p>
      *
      * @param e

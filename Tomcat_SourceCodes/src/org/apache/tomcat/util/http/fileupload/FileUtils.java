@@ -42,7 +42,7 @@ import java.io.IOException;
  * Relying on the platform default means that the code is Locale-dependent.
  * Only use the default if the files are known to always use the platform default.
  * <p>
- * Origin of code: Excalibur, Alexandria, Commons-Utils
+ * Origin of code: Excalibur, Alexandria, Commons-Day01.Code.Utils
  */
 public class FileUtils {
 

@@ -371,7 +371,7 @@ public class MbeansDescriptorsIntrospectionSource extends ModelerSource
     }
 
 
-    // -------------------- Utils --------------------
+    // -------------------- Day01.Code.Utils --------------------
     /**
      * Converts the first character of the given
      * String into lower-case.
