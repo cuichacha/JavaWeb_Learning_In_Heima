@@ -1,21 +1,22 @@
-package Day01.Code.Utils;
+package Day01.CodeReview.utils;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
-public class JDBCUtils {
+public class JDBCUtil {
     private static Connection connection;
     private static String driverClass;
     private static String url;
     private static String username;
     private static String password;
 
-    private JDBCUtils() {
+    private JDBCUtil() {
     }
 
     static {
-        InputStream resourceAsStream = JDBCUtils.class.getClassLoader().getResourceAsStream("Day01/Code/config.properties");
+        InputStream resourceAsStream = JDBCUtil.class.getClassLoader().getResourceAsStream("/Day01/CodeReview/config.properties");
         Properties properties = new Properties();
         try {
             properties.load(resourceAsStream);
@@ -23,7 +24,6 @@ public class JDBCUtils {
             url = properties.getProperty("url");
             username = properties.getProperty("username");
             password = properties.getProperty("password");
-
             Class.forName(driverClass);
         } catch (Exception e) {
             e.printStackTrace();
