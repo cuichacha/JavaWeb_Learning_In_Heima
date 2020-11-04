@@ -16,7 +16,7 @@ public class JDBCUtil {
     }
 
     static {
-        InputStream resourceAsStream = JDBCUtil.class.getClassLoader().getResourceAsStream("/Day01/CodeReview/config.properties");
+        InputStream resourceAsStream = JDBCUtil.class.getClassLoader().getResourceAsStream("Day01/CodeReview/config.properties");
         Properties properties = new Properties();
         try {
             properties.load(resourceAsStream);
