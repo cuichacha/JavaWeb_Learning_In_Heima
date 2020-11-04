@@ -41,30 +41,82 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public Student findById(Integer id) {
+    public Student findBySid(Integer sid) {
         Connection connection = JDBCUtil.getConnection();
+        Student student = new Student();
         String sql = "select * from student where sid = ?";
         try {
             preparedStatement = connection.prepareStatement(sql);
-
+            preparedStatement.setInt(1, sid);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Integer id = resultSet.getInt("sid");
+                String name = resultSet.getString("name");
+                Integer age = resultSet.getInt("age");
+                String birthday = resultSet.getString("birthday");
+                student = new Student(id, name, age, DateUtil.String2Date(birthday));
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } finally {
+            JDBCUtil.close(resultSet, preparedStatement, connection);
         }
-        return null;
+        return student;
     }
 
     @Override
     public Integer insert(Student student) {
-        return null;
+        connection = JDBCUtil.getConnection();
+        Integer result = 0;
+        String sql = "insert into student (sid, name, age, birthday) values (null, ?, ?, ?)";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, student.getName());
+            preparedStatement.setInt(2, student.getAge());
+            preparedStatement.setString(3, DateUtil.date2String(student.getBirthday()));
+            result = this.preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCUtil.close(null, preparedStatement, connection);
+        }
+        return result;
     }
 
     @Override
     public Integer update(Student student) {
-        return null;
+        connection = JDBCUtil.getConnection();
+        Integer result = 0;
+        String sql = "update student set name = ?, age = ?, birthday = ? where sid = ?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, student.getName());
+            preparedStatement.setInt(2, student.getAge());
+            preparedStatement.setString(3, DateUtil.date2String(student.getBirthday()));
+            preparedStatement.setInt(4, student.getSid());
+            result = preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCUtil.close(null, preparedStatement, connection);
+        }
+        return result;
     }
 
     @Override
     public Integer delete(Integer id) {
-        return null;
+        Connection connection = JDBCUtil.getConnection();
+        Integer result = 0;
+        String sql = "delete from student where sid = ?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            result = preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCUtil.close(null, preparedStatement, connection);
+        }
+        return result;
     }
 }

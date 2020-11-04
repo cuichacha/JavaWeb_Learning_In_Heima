@@ -7,7 +7,7 @@ import java.util.List;
 public interface StudentService {
     public abstract List<Student> findAll();
 
-    public abstract Student findById(Integer id);
+    public abstract Student findBySid(Integer sid);
 
     public abstract Integer insert(Student student);
 

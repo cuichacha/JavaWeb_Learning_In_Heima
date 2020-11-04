@@ -15,8 +15,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findById(Integer id) {
-        return studentDao.findById(id);
+    public Student findBySid(Integer sid) {
+        return studentDao.findBySid(sid);
     }
 
     @Override
