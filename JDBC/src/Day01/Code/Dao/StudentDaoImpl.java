@@ -18,7 +18,7 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> findAll() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://192.168.134.132:3306/jdbc_day01", "root", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.134.132:3306/db_jdbc", "root", "password");
             String sql = "select * from student";
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
@@ -65,7 +65,7 @@ public class StudentDaoImpl implements StudentDao {
     public Student findByID(Integer id) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://192.168.134.132:3306/jdbc_day01", "root", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.134.132:3306/db_jdbc", "root", "password");
             String sql = "select * from student where sid = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
@@ -116,7 +116,7 @@ public class StudentDaoImpl implements StudentDao {
         int result = 0;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://192.168.134.132:3306/jdbc_day01", "root", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.134.132:3306/db_jdbc", "root", "password");
             String sql = "insert  into student (sid, name, age, birthday) values (null ,?,?,?)";
 //            preparedStatement.setInt(1, student.getSid());
             preparedStatement = connection.prepareStatement(sql);
