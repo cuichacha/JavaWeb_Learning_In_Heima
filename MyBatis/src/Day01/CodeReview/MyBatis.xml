@@ -3,19 +3,30 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+    <properties resource="Day01/CodeReview/JDBC.properties"/>
+
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <package name="Day01.CodeReview.bean"/>
+    </typeAliases>
+
+
     <environments default="mysql">
         <environment id="mysql">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://192.168.134.133:3306/db_mybatis"/>
-                <property name="username" value="root"/>
-                <property name="password" value="password"/>
+                <property name="driver" value="${driverClass}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
 
     <mappers>
-        <mapper resource="Day01/CodeReview/StudentMapper.xml" />
+        <mapper resource="Day01/CodeReview/StudentMapper.xml"/>
     </mappers>
 </configuration>

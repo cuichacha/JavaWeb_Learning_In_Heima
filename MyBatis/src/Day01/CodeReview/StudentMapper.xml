@@ -3,21 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="xx">
-    <select id="findAll" resultType="Day01.CodeReview.bean.Student">
+    <select id="findAll" resultType="Student">
         select * from student;
     </select>
 
-    <select id="findById">
+    <select id="findById" resultType="Student">
         select * from student where sid = #{sid};
     </select>
 
     <insert id="insert">
-        insert into student (name, age) values (#{sid}, #{name});
+        insert into student (name, age, insert_time) values (#{sid}, #{name}, #{insert_time});
     </insert>
 
     <update id="update">
-        update student set name = #{name}, age = #{age} where sid = #{sid};
+        update student set name = #{name}, age = #{age}, insertTime = #{insert_time} where sid = #{sid};
     </update>
 
     <delete id="delete">

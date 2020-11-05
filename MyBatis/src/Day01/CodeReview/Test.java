@@ -17,6 +17,7 @@ public class Test {
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
             SqlSession sqlSession = sqlSessionFactory.openSession();
             List<Student> list = sqlSession.selectList("xx.findAll");
+            sqlSession.close();
             System.out.println(list);
         } catch (IOException e) {
             e.printStackTrace();
