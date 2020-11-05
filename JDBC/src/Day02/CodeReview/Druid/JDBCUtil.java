@@ -1,41 +1,31 @@
-package Day02.CodeReview.utils;
+package Day02.CodeReview.Druid;
 
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
 public class JDBCUtil {
-    private static Connection connection;
-    private static String driverClass;
-    private static String url;
-    private static String username;
-    private static String password;
+    private static DataSource dataSource;
 
     private JDBCUtil() {
     }
 
     static {
-        InputStream resourceAsStream = JDBCUtil.class.getClassLoader().getResourceAsStream("Day02/CodeReview/config.properties");
+        InputStream resourceAsStream = JDBCUtil.class.getClassLoader().getResourceAsStream("Day02/CodeReview/Druid/druid.properties");
         Properties properties = new Properties();
         try {
             properties.load(resourceAsStream);
-            driverClass = properties.getProperty("driverClass");
-            url = properties.getProperty("url");
-            username = properties.getProperty("username");
-            password = properties.getProperty("password");
-            Class.forName(driverClass);
+            dataSource = DruidDataSourceFactory.createDataSource(properties);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static Connection getConnection() {
-        try {
-            connection = DriverManager.getConnection(url, username, password);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return connection;
+    public static Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
     }
 
     public static void close(ResultSet resultSet, PreparedStatement preparedStatement, Connection connection) {
