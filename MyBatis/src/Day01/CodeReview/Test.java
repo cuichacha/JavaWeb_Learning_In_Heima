@@ -1,6 +1,6 @@
-package Day01.Code;
+package Day01.CodeReview;
 
-import Day01.Code.bean.Student;
+import Day01.CodeReview.bean.Student;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,14 +13,14 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
         try {
-            InputStream resourceAsStream = Resources.getResourceAsStream("Day01/Code/MyBatis.xml");
+            InputStream resourceAsStream = Resources.getResourceAsStream("Day01/CodeReview/MyBatis.xml");
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
             SqlSession sqlSession = sqlSessionFactory.openSession();
             List<Student> list = sqlSession.selectList("xx.findAll");
             System.out.println(list);
-            sqlSession.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

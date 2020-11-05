@@ -1,21 +1,17 @@
-package Day01.Code.domain;
-
-import java.util.Date;
+package Day01.CodeReview.bean;
 
 public class Student {
     private Integer sid;
     private String name;
     private Integer age;
-    private Date birthday;
 
     public Student() {
     }
 
-    public Student(Integer sid, String name, Integer age, Date birthday) {
+    public Student(Integer sid, String name, Integer age) {
         this.sid = sid;
         this.name = name;
         this.age = age;
-        this.birthday = birthday;
     }
 
     public Integer getSid() {
@@ -42,21 +38,12 @@ public class Student {
         this.age = age;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
                 "sid=" + sid +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", birthday=" + birthday +
                 '}';
     }
 }
