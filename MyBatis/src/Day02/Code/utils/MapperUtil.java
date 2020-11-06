@@ -8,11 +8,11 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MapUtil {
+public class MapperUtil {
     private static SqlSessionFactory sqlSessionFactory;
     private static ThreadLocal<SqlSession> threadLocal = new ThreadLocal<>();
 
-    private MapUtil() {
+    private MapperUtil() {
     }
 
     static {

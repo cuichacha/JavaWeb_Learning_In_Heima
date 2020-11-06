@@ -2,7 +2,7 @@ package Day02.Code.service;
 
 import Day02.Code.bean.Student;
 import Day02.Code.mapper.StudentMapper;
-import Day02.Code.utils.MapUtil;
+import Day02.Code.utils.MapperUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -32,17 +32,17 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student findBySid(Integer sid) {
-        StudentMapper mapper = MapUtil.getMapper(StudentMapper.class, true);
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
         Student student = mapper.findBySid(sid);
-        MapUtil.close();
+        MapperUtil.close();
         return student;
     }
 
     @Override
     public Integer insert(Student student) {
-        StudentMapper mapper = MapUtil.getMapper(StudentMapper.class, true);
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
         Integer result = mapper.insert(student);
-        MapUtil.close();
+        MapperUtil.close();
         return result;
     }
 
