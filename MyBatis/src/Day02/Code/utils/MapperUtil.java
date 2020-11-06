@@ -39,6 +39,13 @@ public class MapperUtil {
         }
     }
 
+    public static void rollback() {
+        SqlSession sqlSession = threadLocal.get();
+        if (sqlSession != null) {
+            sqlSession.rollback();
+        }
+    }
+
     public static void close() {
         SqlSession sqlSession = threadLocal.get();
         if (sqlSession != null) {
