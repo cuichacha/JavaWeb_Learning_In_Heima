@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Day02.Code.dao.StudentDao">
+    <select id="findAll" resultType="Student">
+        select * from student;
+    </select>
+
+    <select id="findById" resultType="Student">
+        select * from student where sid = #{sid};
+    </select>
+
+    <insert id="insert">
+        insert into student (sid, name, age, insert_time) values (#{sid}, #{name}, #{age}, #{insertTime});
+    </insert>
+
+    <update id="update">
+        update student set sid = #{sid}, name = #{name}, age = #{age}, insert_time = #{insertTime} where sid = #{sid};
+    </update>
+
+    <delete id="delete">
+        delete from student where sid = #{sid};
+    </delete>
+</mapper>
