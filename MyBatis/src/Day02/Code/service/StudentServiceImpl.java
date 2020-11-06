@@ -1,7 +1,8 @@
 package Day02.Code.service;
 
 import Day02.Code.bean.Student;
-import Day02.Code.dao.StudentMapper;
+import Day02.Code.mapper.StudentMapper;
+import Day02.Code.utils.MapUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -25,13 +26,15 @@ public class StudentServiceImpl implements StudentService {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         List<Student> students = mapper.findAll();
-
+        sqlSession.close();
         return students;
     }
 
     @Override
     public Student findBySid(Integer sid) {
-        return null;
+        StudentMapper mapper = MapUtil.getMapper(StudentMapper.class);
+        Student student = mapper.findBySid(sid);
+        return student;
     }
 
     @Override

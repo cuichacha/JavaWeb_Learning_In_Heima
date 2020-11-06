@@ -1,4 +1,4 @@
-package Day02.Code.dao;
+package Day02.Code.mapper;
 
 import Day02.Code.bean.Student;
 

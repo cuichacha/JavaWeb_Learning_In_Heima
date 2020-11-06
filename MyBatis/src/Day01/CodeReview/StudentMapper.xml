@@ -9,7 +9,7 @@
         select * from student;
     </select>
 
-    <select id="findById" resultType="Student">
+    <select id="findBySid" resultType="Student">
         select * from student where sid = #{sid};
     </select>
 
