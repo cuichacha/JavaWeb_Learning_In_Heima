@@ -3,6 +3,10 @@ package Day02.Code.service;
 import Day02.Code.bean.Student;
 import Day02.Code.mapper.StudentMapper;
 import Day02.Code.utils.MapperUtil;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import jdk.nashorn.internal.ir.CallNode;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -48,11 +52,50 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Integer update(Student student) {
-        return null;
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        Integer result = mapper.update(student);
+        MapperUtil.close();
+        return result;
     }
 
     @Override
     public Integer delete(Integer id) {
-        return null;
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        Integer result = mapper.delete(id);
+        MapperUtil.close();
+        return result;
+    }
+
+    @Override
+    public Student findByIdAndName(Integer sid, String name) {
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        Student student = mapper.findByIdAndName(sid, name);
+        MapperUtil.close();
+        return student;
+    }
+
+    @Override
+    public Integer updatedUpdate(Student student) {
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        Integer result = mapper.updatedUpdate(student);
+        MapperUtil.close();
+        return result;
+    }
+
+    @Override
+    public List<Student> findByIds(List<Integer> ids) {
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        List<Student> students = mapper.findByIds(ids);
+        MapperUtil.close();
+        return students;
+    }
+
+    @Override
+    public List<Student> findAllInPages() {
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        PageHelper.startPage(1,3);
+        List<Student> students = mapper.findAllInPages();
+        MapperUtil.close();
+        return students;
     }
 }

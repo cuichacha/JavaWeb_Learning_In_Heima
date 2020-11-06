@@ -5,6 +5,8 @@
 
 
 <mapper namespace="Day02.Code.mapper.StudentMapper">
+    <sql id="select">select * from student</sql>
+
     <select id="findAll" resultType="Student">
         select * from student;
     </select>
@@ -24,4 +26,53 @@
     <delete id="delete">
         delete from student where sid = #{sid};
     </delete>
+
+    <select id="findByIdAndName" resultType="Student">
+        select * from student
+        <where>
+            <if test="sid != null">
+                and sid = #{sid}
+            </if>
+
+            <if test="name != null">
+                and name = #{name}
+            </if>
+        </where>
+    </select>
+
+    <update id="updatedUpdate">
+        update student
+        <set>
+            <if test=" sid != null">
+                sid = #{sid},
+            </if>
+            <if test=" name != null">
+                name = #{name},
+            </if>
+            <if test=" age != null">
+                age = #{age},
+            </if>
+            <if test=" insert_time != null">
+                insert_time = #{insertTime},
+            </if>
+        </set>
+        <where>
+            <if test="sid != null">
+                sid = #{sid}
+            </if>
+        </where>
+    </update>
+
+    <select id="findByIds" resultType="Student">
+        <include refid="select"></include>
+        <where>
+            <foreach collection="list" open="sid in (" close=")" item="sid" separator="," >
+                #{sid}
+            </foreach>
+        </where>
+    </select>
+
+    <select id="findAllInPages" resultType="Student">
+        <include refid="select"></include>
+    </select>
 </mapper>

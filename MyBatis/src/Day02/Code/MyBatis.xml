@@ -7,12 +7,16 @@
 
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="log4j"/>
     </settings>
 
     <typeAliases>
         <package name="Day02.Code.bean"/>
     </typeAliases>
 
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
 
     <environments default="mysql">
         <environment id="mysql">
