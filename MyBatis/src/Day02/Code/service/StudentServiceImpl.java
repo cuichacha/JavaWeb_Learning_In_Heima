@@ -32,14 +32,18 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student findBySid(Integer sid) {
-        StudentMapper mapper = MapUtil.getMapper(StudentMapper.class);
+        StudentMapper mapper = MapUtil.getMapper(StudentMapper.class, true);
         Student student = mapper.findBySid(sid);
+        MapUtil.close();
         return student;
     }
 
     @Override
     public Integer insert(Student student) {
-        return null;
+        StudentMapper mapper = MapUtil.getMapper(StudentMapper.class, true);
+        Integer result = mapper.insert(student);
+        MapUtil.close();
+        return result;
     }
 
     @Override

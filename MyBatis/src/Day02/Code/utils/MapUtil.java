@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
 
 public class MapUtil {
     private static SqlSessionFactory sqlSessionFactory;
@@ -26,9 +25,24 @@ public class MapUtil {
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
     }
 
-    public static<T> T getMapper(Class<T> tClass) {
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+    public static<T> T getMapper(Class<T> tClass, boolean autoCommit) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(autoCommit);
+        threadLocal.set(sqlSession);
         T mapper = sqlSession.getMapper(tClass);
         return mapper;
+    }
+
+    public static void commit() {
+        SqlSession sqlSession = threadLocal.get();
+        if (sqlSession != null) {
+            sqlSession.commit();
+        }
+    }
+
+    public static void close() {
+        SqlSession sqlSession = threadLocal.get();
+        if (sqlSession != null) {
+            sqlSession.close();
+        }
     }
 }

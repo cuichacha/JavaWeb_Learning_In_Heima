@@ -25,7 +25,7 @@ public class StudentController {
 
     @Test
     public void insert() {
-        Student student = new Student(null, "周七", 27, DateUtil.String2Date("1997-07-07"));
+        Student student = new Student(null, "周六", 27, DateUtil.String2Date("1997-07-07"));
         Integer result = studentService.insert(student);
         if (result != 0) {
             System.out.println("添加成功");
