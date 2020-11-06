@@ -29,7 +29,7 @@ public class StudentDaoImpl implements StudentDao {
     public Integer insert(Student student) {
         sqlSession = SqlSessionUtil2.openSqlSession(true);
         Integer result = sqlSession.insert("xx.insert");
-        sqlSession.close();
+        SqlSessionUtil2.close(sqlSession);
         return result;
     }
 

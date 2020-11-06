@@ -14,11 +14,11 @@
     </select>
 
     <insert id="insert">
-        insert into student (name, age, insert_time) values (#{sid}, #{name}, #{insert_time});
+        insert into student (name, age, insert_time) values (#{name}, #{age}, #{insertTime});
     </insert>
 
     <update id="update">
-        update student set name = #{name}, age = #{age}, insertTime = #{insert_time} where sid = #{sid};
+        update student set name = #{name}, age = #{age}, insert_time = #{insertTime} where sid = #{sid};
     </update>
 
     <delete id="delete">
