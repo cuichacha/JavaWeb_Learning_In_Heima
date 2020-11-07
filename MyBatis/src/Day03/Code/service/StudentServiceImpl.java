@@ -16,12 +16,18 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student findBySid(Integer sid) {
-        return null;
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        Student student = mapper.findBySid(sid);
+        MapperUtil.close();
+        return student;
     }
 
     @Override
     public Integer insert(Student student) {
-        return null;
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        Integer result = mapper.insert(student);
+        MapperUtil.close();
+        return result;
     }
 
     @Override
@@ -31,7 +37,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Integer delete(Integer id) {
-        return null;
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        Integer result = mapper.delete(id);
+        MapperUtil.close();
+        return result;
     }
 
     @Override

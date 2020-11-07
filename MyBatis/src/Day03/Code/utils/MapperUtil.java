@@ -26,16 +26,37 @@ public class MapperUtil {
     }
 
     public static<T> T getMapper(Class<T> tClass, boolean autoCommit) {
-        SqlSession sqlSession = sqlSessionFactory.openSession(autoCommit);
-        threadLocal.set(sqlSession);
-        T mapper = sqlSession.getMapper(tClass);
-        return mapper;
+        T mapper;
+        if (threadLocal.get() != null) {
+            SqlSession sqlSession = threadLocal.get();
+            mapper = sqlSession.getMapper(tClass);
+            return mapper;
+        } else {
+            SqlSession sqlSession = sqlSessionFactory.openSession(autoCommit);
+            threadLocal.set(sqlSession);
+            mapper = sqlSession.getMapper(tClass);
+            return mapper;
+        }
     }
 
     public static void close() {
         SqlSession sqlSession = threadLocal.get();
         if (sqlSession != null) {
             sqlSession.close();
+        }
+    }
+
+    public static void commit() {
+        SqlSession sqlSession = threadLocal.get();
+        if (sqlSession != null) {
+            sqlSession.commit();
+        }
+    }
+
+    public static void rollback() {
+        SqlSession sqlSession = threadLocal.get();
+        if (sqlSession != null) {
+            sqlSession.rollback();
         }
     }
 }
