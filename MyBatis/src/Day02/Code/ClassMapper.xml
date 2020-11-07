@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Day02.Code.mapper.ClassMapper">
+    <resultMap id="oneToMany" type="Classes">
+        <id column="cid" property="id"/>
+        <result column="cname" property="name"/>
+        <collection property="learners" ofType="Learner">
+            <id column="lid" property="id"/>
+            <result column="lname" property="name"/>
+            <result column="lage" property="age"/>
+        </collection>
+    </resultMap>
+
+    <select id="findAll" resultMap="oneToMany">
+        select c.id as cid, c.NAME as cname, l.id as lid, l.NAME as lname, l.age as lage
+            from classes as c,
+                learner as l
+            where c.id = l.cid;
+    </select>
+</mapper>

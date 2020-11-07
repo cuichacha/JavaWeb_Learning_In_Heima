@@ -4,17 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Day02.Code.mapper.CardMapper">
-    <resultMap id="cardMap" type="Card">
-        <id column="cid" property="id"/>
+    <resultMap id="oneToOne" type="Card">
+        <id column="id" property="id"/>
         <result column="number" property="number"/>
         <association property="person" javaType="Person">
-            <id column="pid" property="id"/>
+            <id column="id" property="id"/>
             <result column="name" property="name"/>
             <result column="age" property="age"/>
         </association>
     </resultMap>
 
-    <select id="findAll" resultMap="cardMap">
-        SELECT c.id cid,number,pid,NAME,age FROM card c,person p WHERE c.pid=p.id
+    <select id="findAll" resultMap="oneToOne">
+        select c.id, c.number, p.id, p.NAME, p.age
+            from card as c,
+                person as p
+            where c.pid = p.id;
     </select>
 </mapper>

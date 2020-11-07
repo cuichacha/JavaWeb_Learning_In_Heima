@@ -5,8 +5,6 @@ import Day02.Code.mapper.StudentMapper;
 import Day02.Code.utils.MapperUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import jdk.nashorn.internal.ir.CallNode;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
