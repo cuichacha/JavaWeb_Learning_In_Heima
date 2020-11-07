@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <properties resource="Day03/Code/JDBC.properties"/>
+
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="log4j"/>
+    </settings>
+
+    <typeAliases>
+        <package name="Day03.Code.bean"/>
+    </typeAliases>
+
+    <environments default="MySQL">
+        <environment id="MySQL">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driverClass}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+<!--        <mapper class="Day03.Code.mapper.StudentMapper"/>-->
+        <package name="Day03.Code.mapper"/>
+    </mappers>
+</configuration>

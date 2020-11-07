@@ -95,6 +95,7 @@ public class StudentServiceImpl implements StudentService {
         StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
         PageHelper.startPage(1,3);
         List<Student> students = mapper.findAllInPages();
+        PageInfo<Student> pageInfo = new PageInfo<>(students);
         MapperUtil.close();
         return students;
     }
