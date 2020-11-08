@@ -14,21 +14,23 @@ public class StudentController {
     @Test
     public void findAll() {
         List<Student> students = studentService.findAll();
-        System.out.println(students);
+        for (Student student : students) {
+            System.out.println(student);
+        }
     }
 
     @Test
     public void findBySid() {
-        Student student = studentService.findBySid(6);
+        Student student = studentService.findBySid(5);
         System.out.println(student);
     }
 
-    @Test
-    public void insert() {
-        Student student = new Student(null, "lala", 0, new Date());
-        Integer result = studentService.insert(student);
-        System.out.println(result);
-    }
+//    @Test
+//    public void insert() {
+//        Student student = new Student(null, "lala", 0, new Date());
+//        Integer result = studentService.insert(student);
+//        System.out.println(result);
+//    }
 
     @Test
     public void delete() {
