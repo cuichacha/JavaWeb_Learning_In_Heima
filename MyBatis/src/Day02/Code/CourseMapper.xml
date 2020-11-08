@@ -3,9 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper>
-    <resultMap id="" type="">
+<mapper namespace="Day02.Code.mapper.CourseMapper">
+    <resultMap id="manyToMany" type="Student">
+        <id column="sid" property="sid"/>
+        <result column="sname" property="name"/>
+        <result column="age" property="age"/>
 
+        <collection property="courses" ofType="Course">
+            <id column="id" property="id"/>
+            <result column="cname" property="name"/>
+        </collection>
     </resultMap>
 
+    <select id="findAll" resultMap="manyToMany">
+        select s.sid, s.name as sname, s.age, c.id, c.NAME as cname
+            from student as s,
+                course as c,
+                stu_cr as sc
+            where s.sid = sc.sid
+            and c.id = sc.cid;
+    </select>
 </mapper>

@@ -34,5 +34,6 @@
         <mapper resource="Day02/Code/StudentMapper.xml"/>
         <mapper resource="Day02/Code/CardMapper.xml"/>
         <mapper resource="Day02/Code/ClassMapper.xml"/>
+        <mapper resource="Day02/Code/CourseMapper.xml"/>
     </mappers>
 </configuration>
