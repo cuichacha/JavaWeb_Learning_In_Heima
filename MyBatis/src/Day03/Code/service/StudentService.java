@@ -1,5 +1,6 @@
 package Day03.Code.service;
 
+import Day03.Code.bean.Course;
 import Day03.Code.bean.Student;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,4 +24,6 @@ public interface StudentService {
     public abstract List<Student> findByIds(List<Integer> ids);
 
     public abstract List<Student> findAllInPages();
+
+    public abstract List<Student> findCourses();
 }

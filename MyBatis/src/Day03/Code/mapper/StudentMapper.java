@@ -1,10 +1,7 @@
 package Day03.Code.mapper;
 
 import Day03.Code.bean.Student;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -30,4 +27,16 @@ public interface StudentMapper {
     public abstract List<Student> findByIds(List<Integer> ids);
 
     public abstract List<Student> findAllInPages();
+
+    @Select("select distinct s.sid, s.name, s.age from student as s, stu_cr as sc where s.sid = sc.sid")
+    @Results({
+            @Result(column = "sid", property = "sid"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "age", property = "age"),
+            @Result(column = "sid", property = "courses",
+                    javaType = List.class,
+                    many = @Many(select = "Day03.Code.mapper.CourseMapper.findCourse")
+            )
+    })
+    public abstract List<Student> findCourses();
 }

@@ -37,4 +37,12 @@ public class StudentController {
         Integer result = studentService.delete(6);
         System.out.println(result);
     }
+
+    @Test
+    public void findCourses() {
+        List<Student> courses = studentService.findCourses();
+        for (Student student : courses) {
+            System.out.println(student);
+        }
+    }
 }

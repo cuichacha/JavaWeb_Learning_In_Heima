@@ -1,5 +1,6 @@
 package Day03.Code.service;
 
+import Day03.Code.bean.Course;
 import Day03.Code.bean.Student;
 import Day03.Code.mapper.StudentMapper;
 import Day03.Code.utils.MapperUtil;
@@ -61,5 +62,13 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> findAllInPages() {
         return null;
+    }
+
+    @Override
+    public List<Student> findCourses() {
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        List<Student> courses = mapper.findCourses();
+        MapperUtil.close();
+        return courses;
     }
 }
