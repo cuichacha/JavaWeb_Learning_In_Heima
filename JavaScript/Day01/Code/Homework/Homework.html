@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<select id="province">
+    <option>--请选择--</option>
+    <option value="0">江西省</option>
+    <option value="1">浙江省</option>
+    <option value="2">江苏省</option>
+    <option value="3">台湾省</option>
+</select>
+
+<select id="city">
+    <option>--请选择--</option>
+</select>
+
+
+</body>
+<script type="text/javascript">
+    //省份对应的市信息
+    let provinces = [
+        ["南昌市", "九江市", "赣州市"],
+        ["杭州市", "宁波市", "温州市", "嘉兴市"],
+        ["南京市", "苏州市", "扬州市"],
+        ["台北市", "台中市", "台南市"]
+    ];
+
+    //在这个地方补充代码，实现省市二级联动
+    let province = document.getElementById("province");
+    let city = document.getElementById("city");
+
+    province.onchange = list;
+
+    function listCity(num) {
+        let cities = provinces[num];
+        city.innerHTML = "<option>--请选择--</option>";
+        for (let i = 0; i < cities.length; i++) {
+            city.innerHTML += "<option>" + cities[i] + "</option>";
+        }
+    }
+
+    function list() {
+
+        let value = province.value;
+        console.log(value);
+
+        switch (value) {
+            case "0":
+                // alert("lalala");
+                listCity(0);
+                break;
+            case "1":
+                listCity(1);
+                break;
+            case "2":
+                listCity(2);
+                break;
+            case "3":
+                listCity(3);
+                break;
+        }
+    }
+</script>
+</html>

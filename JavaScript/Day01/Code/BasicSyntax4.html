@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BasicSyntax4</title>
+</head>
+<body>
+<script>
+    let array1 = ["1", 2, 3];
+
+    // for (let i = 0; i < array1.length; i++) {
+    //     window.document.write(array1[i] + "<br>");
+    // }
+
+    let array2 = [...array1];
+
+    // for (let i = 0; i < array2.length; i++) {
+    //     window.document.write(array2[i] + "<br>");
+    // }
+
+    let array3 = [...array1, ...array2];
+    for (let i = 0; i < array3.length; i++) {
+        window.document.write(array3[i] + "<br>");
+    }
+
+    let array4 = [..."hello"];
+    for (let i = 0; i < array4.length; i++) {
+        window.document.write(array4[i] + "<br>");
+    }
+
+</script>
+</body>
+</html>

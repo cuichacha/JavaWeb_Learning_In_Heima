@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function1</title>
+</head>
+<body>
+<script>
+    function f(...parameters) {
+        let num = 1;
+        for (let i = 0; i < parameters.length; i++) {
+            num *= parameters[i];
+        }
+        return num;
+    }
+
+    let number = function (...parameters) {
+        let num = 1;
+        for (let i = 0; i < parameters.length; i++) {
+            num *= parameters[i];
+        }
+        return num;
+    }
+
+    window.document.write(f(1,2,3));
+    window.document.write("<br>")
+    window.document.write(number(2,3,4));
+</script>
+</body>
+</html>
