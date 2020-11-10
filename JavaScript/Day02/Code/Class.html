@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+</head>
+<body>
+<script>
+    let person = {
+        name: "啦啦啦",
+        age: 0,
+        hobby: ["00", "11"],
+        unknown: {name: "unknown", age: 0, do : function () {
+                document.write("嘿嘿嘿");
+            }},
+        eat: function () {
+            window.document.write("嘟嘟嘟");
+        }
+    };
+    document.write(person.name + "<br>");
+    person.eat();
+    document.write("<br>");
+    document.write(person.unknown.name + "<br>");
+    person.unknown.do();
+</script>
+</body>
+</html>
