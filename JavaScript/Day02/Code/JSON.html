@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+<script>
+    let weather = {
+        city : {privince : "xx", city : "xx"},
+        date : "2020-11-11",
+        temperature : [{time : "morning", degree : 10}, {time : "afternoon", degree: 15}],
+        moisture : "22%",
+    };
+
+    let str = JSON.stringify(weather);
+    console.log(str);
+
+    let parse = JSON.parse(str);
+
+    document.write(parse.temperature[0].time);
+</script>
+</body>
+</html>
