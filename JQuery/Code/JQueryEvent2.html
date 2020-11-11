@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQueryEvent2</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>啦啦啦</td>
+    </tr>
+    <tr>
+        <td>啦啦啦</td>
+    </tr>
+    <tr>
+        <td>啦啦啦</td>
+    </tr>
+</table>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-migrate-3.3.1.min.js"></script>
+
+<script>
+    let table = $("table");
+    for (let i = 0; i < 3; i++) {
+        table.append("<tr>\n" +
+            "        <td>嘿嘿嘿</td>\n" +
+            "    </tr>");
+    }
+
+    table.css();
+
+    let a = 1;
+
+    function f() {
+        a = 2;
+    }
+
+</script>
+</html>

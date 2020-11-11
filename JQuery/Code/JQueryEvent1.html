@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQueryEvent</title>
+</head>
+<body>
+<input type="button" id="button" value="点">
+<br>
+<input type="text" id="input">
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-migrate-3.3.1.min.js"></script>
+<script>
+
+    let inputBox = "#input";
+
+    function focus() {
+        $(input)[0].value = "111";
+
+    }
+    function blur() {
+        $(input)[0].value = "222";
+
+    }
+
+    $(inputBox).focus(focus).blur(blur);
+
+    $(inputBox).hover(function () {
+        $(this).css("background", "blue");
+    }, function () {
+        $(this).css("background", "yellow");
+    })
+
+</script>
+</html>
