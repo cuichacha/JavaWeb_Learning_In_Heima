@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JQueryEvent</title>
+    <title>JQueryEvent1</title>
 </head>
 <body>
 <input type="button" id="button" value="点">
@@ -10,27 +10,40 @@
 <input type="text" id="input">
 </body>
 <script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/jquery-migrate-3.3.1.min.js"></script>
 <script>
 
-    let inputBox = "#input";
+    let inputBox = $("#input");
 
     function focus() {
-        $(input)[0].value = "111";
+        inputBox[0].value = "111";
 
     }
     function blur() {
-        $(input)[0].value = "222";
+        inputBox[0].value = "222";
 
     }
 
-    $(inputBox).focus(focus).blur(blur);
+    $("#button").toggle(f1, f2, f3);
 
-    $(inputBox).hover(function () {
-        $(this).css("background", "blue");
-    }, function () {
-        $(this).css("background", "yellow");
-    })
+    function f1() {
+        alert(111);
+    }
+
+    function f2() {
+        alert(111);
+    }
+
+    function f3() {
+        alert(111);
+    }
+
+    // inputBox.focus(focus).blur(blur);
+    //
+    // inputBox.hover(function () {
+    //     $(this).css("background", "blue");
+    // }, function () {
+    //     $(this).css("background", "yellow");
+    // })
 
 </script>
 </html>

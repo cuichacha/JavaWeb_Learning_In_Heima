@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example1</title>
+
+    <style>
+        div {
+            margin: auto;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        /*td, th {*/
+        /*    width: 500px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>
+                <input type="button" id="selectAll" style="background-color: lightgreen" value="全选">
+                <input type="button" id="selectNone" style="background-color: lightgreen" value="全不选">
+                <input type="button" id="selectReverse" style="background-color: lightgreen" value="反选">
+            </th>
+            <th>分类ID</th>
+            <th>分类名称</th>
+            <th>分类描述</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" class="item">
+            </td>
+            <td>1</td>
+            <td>手机数码</td>
+            <td>手机数码类商品</td>
+            <td>
+                <a href="JavaScript:void(0);" onclick="modify(this)">修改</a>
+                &nbsp&nbsp
+                <a href="JavaScript:void(0);" onclick="remove(this)">删除</a>
+                &nbsp&nbsp
+                <a href="JavaScript:void(0);" onclick="save(this)">保存</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" class="item">
+            </td>
+            <td>2</td>
+            <td>电脑办公</td>
+            <td>电脑办公类商品</td>
+            <td>
+                <a href="JavaScript:void(0);" onclick="modify(this)">修改</a>
+                &nbsp&nbsp
+                <a href="JavaScript:void(0);" onclick="remove(this)">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" class="item">
+            </td>
+            <td>3</td>
+            <td>鞋靴箱包</td>
+            <td>鞋靴箱包类商品</td>
+            <td>
+                <a href="JavaScript:void(0);" onclick="modify(this)">修改</a>
+                &nbsp&nbsp
+                <a href="JavaScript:void(0);" onclick="remove(this)">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" class="item">
+            </td>
+            <td>4</td>
+            <td>家居饰品</td>
+            <td>家居饰品类商品</td>
+            <td>
+                <a href="JavaScript:void(0);" onclick="modify(this)">修改</a>
+                &nbsp&nbsp
+                <a href="JavaScript:void(0);" onclick="remove(this)">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script>
+    let items = $(".item");
+    $("#selectAll").click(function () {
+        // item.each(function (index, element) {
+        //     element.prop("checked", true);
+        // });
+        items.prop("checked", true);
+    });
+
+    $("#selectNone").click(function () {
+
+        items.prop("checked", false);
+    });
+
+    $("#selectReverse").click(function () {
+        items.each(function (index, element) {
+            $(element).prop("checked", !$(element).prop("checked"));
+        });
+    });
+
+    let parentNode;
+    let children;
+
+    function modify(obj) {
+        parentNode = obj.parentNode.parentNode.parentNode;
+        children = parentNode.children;
+        console.log(children.length);
+        children[1].innerHTML = "<td>\n" +
+            "                <input type=\"checkbox\" class=\"item\">\n" +
+            "            </td>\n" +
+            "            <td>1</td>\n" +
+            "            <td><input type='text' id='text1' placeholder='手机数码'></td>\n" +
+            "            <td><input type='text' id='text2' placeholder='手机数码类商品'></</td>\n" +
+            "            <td>\n" +
+            "                <a href=\"JavaScript:void(0);\" onclick=\"modify(this)\">修改</a>\n" +
+            "                &nbsp&nbsp\n" +
+            "                <a href=\"JavaScript:void(0);\" onclick=\"remove(this)\">删除</a>\n" +
+            "                &nbsp&nbsp\n" +
+            "                <a href=\"JavaScript:void(0);\" onclick=\"save(this)\">保存</a>\n" +
+            "            </td>";
+    }
+
+    function save(obj) {
+        let text1 = document.getElementById("text1").value;
+        let text2 = document.getElementById("text2").value;
+        parentNode = obj.parentNode.parentNode.parentNode;
+        children = parentNode.children;
+        console.log(children.length);
+        children[1].innerHTML = "<td>\n" +
+            "                <input type=\"checkbox\" class=\"item\">\n" +
+            "            </td>\n" +
+            "            <td>1</td>\n" +
+            "            <td>" + text1 + "</td>\n" +
+            "            <td>" + text2 + "</td>\n" +
+            "            <td>\n" +
+            "                <a href=\"JavaScript:void(0);\" onclick=\"modify(this)\">修改</a>\n" +
+            "                &nbsp&nbsp\n" +
+            "                <a href=\"JavaScript:void(0);\" onclick=\"remove(this)\">删除</a>\n" +
+            "                &nbsp&nbsp\n" +
+            "                <a href=\"JavaScript:void(0);\" onclick=\"save(this)\">保存</a>\n" +
+            "            </td>";
+    }
+
+    function remove(obj) {
+        let confirm = window.confirm("是否确定要删除？");
+        if (confirm == true) {
+            let node = obj.parentNode.parentNode;
+            let parentNode = obj.parentNode.parentNode.parentNode;
+            parentNode.removeChild(node);
+        }
+    }
+</script>
+
+</html>

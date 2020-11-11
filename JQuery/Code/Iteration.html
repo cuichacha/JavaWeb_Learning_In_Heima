@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iteration</title>
+</head>
+<body>
+<input type="button" id="button" value="遍历">
+<ul>
+    <li>啦啦啦</li>
+    <li>嘿嘿嘿</li>
+    <li>嘟嘟嘟</li>
+</ul>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script>
+    let button = $("#button");
+    // button.click(function () {
+    // let lis = $("li");
+    //     for (let i = 0; i < lis.length; i++) {
+    //         alert(i + lis[i].innerHTML);
+    //     }
+    // });
+
+    // button.click(function () {
+    //     let lis = $("li");
+    //     lis.each(function (index, ele) {
+    //         alert(index + ele.innerHTML);
+    //     })
+    // });
+
+    button.click(function () {
+        let lis = $("li");
+        $.each(lis, function (index, ele) {
+            alert(index + ele.innerHTML);
+        })
+    });
+</script>
+</html>

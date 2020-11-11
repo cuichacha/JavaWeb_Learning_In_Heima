@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example2</title>
+</head>
+<body>
+<div style="background-color: red; border: dotted; height: 50px; width: 50px">
+    <img src="img/01.jpg" id="small" style="width: 50px; height: 50px">
+</div>
+
+<div style="border: double; width: 400px; height: 400px; position: absolute; left: 500px; top: 10px">
+    <img src="" id="big" style="width: 400px; height: 400px; display: none">
+</div>
+
+<input id="start" type="button" style="width: 150px; height: 150px; font-size: 20px" value="开始">
+<input id="end" type="button" style="width: 150px; height: 150px; font-size: 20px" value="停止">
+
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script>
+    let imgs = ["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/05.jpg",
+        "img/06.jpg", "img/07.jpg", "img/08.jpg", "img/09.jpg", "img/10.jpg"];
+
+    let changeImg;
+
+    $("#start").click(function () {
+        changeImg = setInterval(function () {
+            let random = Math.floor(Math.random() * 10);
+            $("#small").prop("src", imgs[random]);
+        }, 100);
+
+        $("#start").prop("disabled", true);
+        $("#end").prop("disabled", false);
+    });
+
+    $("#end").click(function () {
+        clearInterval(changeImg);
+        $("#big").prop("src", $("#small").prop("src"));
+        $("#big").css("display", "block");
+
+        $("#start").prop("disabled", false);
+        $("#end").prop("disabled", true);
+    });
+
+</script>
+</html>
