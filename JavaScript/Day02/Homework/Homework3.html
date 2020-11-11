@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework3</title>
+
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="img/1.jpeg" id="img" width="778px" onclick="click()">
+</div>
+
+</body>
+
+<script>
+    function click() {
+        location.href = "www.baidu.com";
+    }
+
+    num = 1;
+    changeImage = setInterval(playImg, 2000);
+
+    function playImage() {
+        path1 = "img/"
+        num++;
+        if (num > 3) {
+            num = 1;
+        }
+        path2 = ".jpeg"
+        document.getElementById("img").src = path1 + num + path2;
+    }
+
+    document.getElementById("img").onclick = forward;
+
+    function forward() {
+        if (num == 1) {
+            location.href = "www.baidu.com";
+        } else if (num == 2) {
+            location.href = "www.taobao.com";
+        } else if (num == 3) {
+            location.href = "www.jd.com";
+        }
+    }
+
+    document.getElementById("img").onmouseover = stop;
+    document.getElementById("img").onmouseout = moveOn;
+
+    function stop() {
+        console.log(111);
+        clearInterval(changeImage);
+    }
+
+    function moveOn() {
+        // setInterval(playImg, 2000);
+        changeImage = setInterval(playImage, 2000);
+    }
+
+</script>
+</html>

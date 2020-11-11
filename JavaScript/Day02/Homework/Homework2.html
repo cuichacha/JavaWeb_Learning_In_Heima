@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework2</title>
+</head>
+<body>
+<img src="img/1.jpeg" id="img1" width="50%" style="display: block">
+<img src="img/2.jpeg" id="img2" width="50%" style="display: none">
+<img src="img/3.jpeg" id="img3" width="50%" style="display: none">
+</body>
+
+<script>
+    let img1 = document.getElementById("img1");
+    img1.onclick = function () {
+        location.href = "www.baidu.com";
+    };
+    let img2 = document.getElementById("img2");
+    img2.onclick = function () {
+        location.href = "www.taobao.com";
+    };
+    let img3 = document.getElementById("img3");
+    img3.onclick = function () {
+        location.href = "www.jd.com";
+    };
+
+    let changeToTwo = setInterval(function () {
+        img1.style.display = "none";
+        img2.style.display = "block";
+        // img2.onclick = function () {
+        //   location.href = "www.baidu.com";
+        // };
+        img3.style.display = "none";
+    }, 2000);
+
+    let changeToThree = setInterval(function () {
+        img1.style.display = "none";
+        img2.style.display = "none";
+        img3.style.display = "block";
+    }, 4000);
+
+    let changeToOne = setInterval(function () {
+        img1.style.display = "block";
+        img2.style.display = "none";
+        img3.style.display = "none";
+    }, 6000);
+
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UsernameCheck</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="login-form-wrap">
+    <h1>黑马程序员</h1>
+    <form class="login-form" action="#" id="regist" method="get" autocomplete="off">
+        <label>
+            <input type="text" id="username" name="username" placeholder="Username..." value="">
+            <span style="color: red" id="usernameSpan"></span>
+        </label>
+        <label>
+            <input type="password" id="password" name="password" placeholder="Password..." value="">
+            <span style="color: red" id="passwordSpan"></span>
+        </label>
+        <input type="submit" value="注册">
+    </form>
+</div>
+</body>
+<script>
+
+    let regUsername = /^[a-zA-Z]{4,16}$/;
+    let regPassword = /^\d{6}$/;
+
+    function checkUsername() {
+        let username = document.getElementById("username").value;
+        if (regUsername.test(username)) {
+            document.getElementById("usernameSpan").innerHTML = "";
+            return true;
+        } else {
+            document.getElementById("usernameSpan").innerHTML = "不对";
+            return false;
+        }
+    }
+
+    function checkPassword() {
+        let password = document.getElementById("password").value;
+        if (regPassword.test(password)) {
+            document.getElementById("passwordSpan").innerHTML = "";
+            return true;
+        } else {
+            document.getElementById("passwordSpan").innerHTML = "不对";
+            return false;
+        }
+    }
+
+    document.getElementById("username").onblur = checkUsername;
+    document.getElementById("password").onblur = checkPassword;
+
+    document.getElementById("regist").onsubmit = function () {
+        return checkUsername() && checkPassword();
+    }
+</script>
+</html>

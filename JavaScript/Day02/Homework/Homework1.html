@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework1</title>
+
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+<div>
+    <img src="img/1.jpeg" id="img1" width="778px" style="display: block" onclick="f2();">
+    <img src="img/2.jpeg" id="img2" width="778px" style="display: none">
+    <img src="img/3.jpeg" id="img3" width="778px" style="display: none">
+</div>
+
+</body>
+<script>
+    let number1 = 1;
+    let number2 = 2;
+    let number3 = 3;
+
+    name = "img";
+
+    // document.getElementById("img1");
+    // img1.onclick = function () {
+    //     location.href = "www.baidu.com";
+    // };
+    //
+    // document.getElementById("img2");
+    // img1.onclick = function () {
+    //     location.href = "www.taobao.com";
+    // };
+    //
+    // document.getElementById("img3");
+    // img1.onclick = function () {
+    //     location.href = "www.jd.com";
+    // };
+
+    function f2() {
+        location.href = "www.taobao.com";
+    }
+
+
+    function changeNum1() {
+        number1++;
+        if (number1 > 3) {
+            number1 = 1;
+        }
+        name1 = name + number1;
+    }
+
+
+    function changeNum2() {
+        number2++;
+        if (number2 > 3) {
+            number2 = 1;
+        }
+        name2 = name + number2;
+    }
+
+    function changeNum3() {
+        number3 = number3 + 1;
+        if (number3 > 3) {
+            number3 = 1;
+        }
+        name3 = name + number3;
+    }
+
+    function changeImg() {
+
+        document.getElementById(name1).style.display = "block";
+        document.getElementById(name1).onclick = f;
+        document.getElementById(name1).onmouseover = mouseOn;
+        document.getElementById(name1).onmouseout = mouseOff;
+        document.getElementById(name2).style.display = "none";
+        document.getElementById(name3).style.display = "none";
+    }
+
+    playImg = setInterval("changeImg()", 2000);
+
+    function f() {
+        if (name1 == "img1") {
+            location.href = "www.baidu.com";
+        } else if (name1 == "img2") {
+            location.href = "www.taobao.com";
+        } else if (name1 == "img3") {
+            location.href = "www.jd.com";
+        }
+    }
+
+    addNum1 = setInterval("changeNum1()", 2000);
+    // setInterval("changeNum1()", 2000);
+    addNum2 = setInterval("changeNum2()", 2000);
+    // setInterval("changeNum2()", 2000);
+    addNum3 = setInterval("changeNum3()", 2000);
+
+    // setInterval("changeNum3()", 2000);
+
+    function mouseOn() {
+        // alert("lalala");
+        console.log(111);
+        clearInterval(playImg);
+        clearInterval(addNum1);
+        clearInterval(addNum2);
+        clearInterval(addNum3);
+    }
+
+    function mouseOff() {
+        playImg = setInterval("changeImg()", 2000);
+        addNum1 = setInterval("changeNum1()", 2000);
+        addNum2 = setInterval("changeNum2()", 2000);
+        addNum3 = setInterval("changeNum3()", 2000);
+    }
+
+</script>
+
+</html>
