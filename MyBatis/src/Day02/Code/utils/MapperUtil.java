@@ -51,5 +51,6 @@ public class MapperUtil {
         if (sqlSession != null) {
             sqlSession.close();
         }
+        threadLocal.remove();
     }
 }

@@ -44,6 +44,7 @@ public class MapperUtil {
         if (sqlSession != null) {
             sqlSession.close();
         }
+        threadLocal.remove();
     }
 
     public static void commit() {
