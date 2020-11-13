@@ -27,6 +27,7 @@ public class Filter implements javax.servlet.Filter {
         if (user == null) {
             req.getRequestDispatcher("/StudentManagement/Login.html").forward(req, resp);
         } else {
+            session.setAttribute("JSESSIONID", user);
             req.getRequestDispatcher("/StudentManagement/Home.jsp").forward(req, resp);
         }
     }

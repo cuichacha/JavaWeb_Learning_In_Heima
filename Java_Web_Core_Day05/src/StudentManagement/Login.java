@@ -19,14 +19,15 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Map<String, String[]> login = req.getParameterMap();
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        User user = new User(username, password);
-//        try {
-//            BeanUtils.populate(user, login);
-//        } catch (IllegalAccessException | InvocationTargetException e) {
-//            e.printStackTrace();
-//        }
+//        String username = req.getParameter("username");
+//        String password = req.getParameter("password");
+//        User user = new User(username, password);
+        User user = new User();
+        try {
+            BeanUtils.populate(user, login);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
         session.setAttribute("JESSIONID", user);
         req.getRequestDispatcher("/StudentManagement/Home.jsp").forward(req, resp);
     }

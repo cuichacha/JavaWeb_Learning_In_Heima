@@ -13,8 +13,8 @@
 </head>
 <body>
 
-<a href="#" name="findAll">查询学生</a>
-<a href="/StudentManagement/AddStudent.jsp" name="findAll">添加学生</a>
+<a href="/Java_Web_Core_Day05/FindStudents">查询学生</a>
+<a href="/Java_Web_Core_Day05/StudentManagement/AddStudent.jsp">添加学生</a>
 
 </body>
 </html>
