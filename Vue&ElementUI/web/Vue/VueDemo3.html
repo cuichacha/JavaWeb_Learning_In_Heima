@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueDemo3</title>
+</head>
+<body>
+<div id="div">
+    <ul>
+        <li v-for="name in names">
+            {{name}}
+        </li>
+        <li v-for="student in students">
+            {{student}}
+        </li>
+        <li v-for="student in students">
+            {{student.name}}
+        </li>
+        <li v-for="(name, index) in names">
+            {{index}} --- {{name}}
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: "#div",
+        data: {
+            names: ["1", "2", "3"],
+            students: [{name: "张三"}, {name: "李四"}, {name: "王五"}],
+            student: {
+                name: "张三",
+                age: 23
+            }
+        }
+    });
+</script>
+</html>

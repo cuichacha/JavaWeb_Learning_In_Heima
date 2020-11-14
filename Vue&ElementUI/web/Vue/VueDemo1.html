@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueDemo1</title>
+</head>
+<body>
+<div id="div">
+    <div>姓名：{{name}}</div>
+    <div>班级：{{classroom}}</div>
+    <button onclick="hi()">打招呼</button>
+    <button onclick="update()">修改班级</button>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#div",
+        data: {
+            name: "张三",
+            classroom: "黑马程序员"
+        },
+        methods: {
+            study() {
+                alert(this.name + "在" + this.classroom)
+            },
+            update() {
+                this.classroom = "啦啦啦"
+            }
+        }
+    });
+
+    function hi() {
+        vm.study();
+    }
+
+    function update() {
+        vm.update();
+    }
+</script>
+</html>
