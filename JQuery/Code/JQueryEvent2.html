@@ -21,19 +21,30 @@
 
 <script>
     let table = $("table");
+
+    table.mouseover(function () {
+        $("td").css("background", "pink");
+    });
+
+    table.mouseout(function () {
+        $("td").css("background", "white");
+    });
+
     for (let i = 0; i < 3; i++) {
         table.append("<tr>\n" +
             "        <td>嘿嘿嘿</td>\n" +
             "    </tr>");
     }
 
-    table.css();
-
     let a = 1;
 
     function f() {
         a = 2;
     }
+
+    $(function () {
+        alert(111);
+    });
 
 </script>
 </html>
