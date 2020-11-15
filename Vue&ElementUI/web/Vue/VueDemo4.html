@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueDemo4</title>
+</head>
+<body>
+<div id="div">
+    <form>
+        姓名：
+        <input type="text" name="username" v-model="username">
+        <br>
+        年龄：
+        <input type="text" name="age" v-model="age">
+        <br>
+        {{username}}
+        <br>
+        {{age}}
+    </form>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+new Vue({
+    el:"#div",
+    data:{
+        username:"张三",
+        age:23
+    }
+});
+</script>
+</html>
