@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueDemo1</title>
+</head>
+<body>
+<div id="div">
+    <my-button1>我的按钮1</my-button1>
+    <my-button2 :>我的按钮2</my-button2>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("my-button1", {
+        data:function () {
+            return {
+                buttonname:"啦啦啦"
+            }
+        },
+        template:"<button>{{buttonname}}</button>"
+    });
+
+    Vue.component("my-button2", {
+        template: "\"<button>{{msg}}</button>\""
+    });
+
+    new Vue({
+        el:"my-button1",
+        data:{
+
+        }
+    });
+
+    new Vue({
+        el:"my-button2",
+        data:{
+            msg:嘟嘟嘟
+        }
+    });
+</script>
+</html>
