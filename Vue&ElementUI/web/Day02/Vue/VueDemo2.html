@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueDemo2</title>
+</head>
+<body>
+<div id="div">
+    {{name}}
+    <br>
+    <button @click="send()">发起请求</button>
+</div>
+
+</body>
+<script src="js/vue.js"></script>
+<script src="js/axios-0.18.0.js"></script>
+<script>
+new Vue({
+    el:"#div",
+    data:{
+        name:"张三"
+    },
+    methods:{
+        send(){
+            // axios.get("/Vue/TestServlet1?name=" + this.name)
+            // .then(resp => {
+            //     this.name = resp.data;
+            // })
+            // .catch(err => {
+            //
+            // })
+            // axios.post("/Vue/TestServlet1", "name=" + this.name)
+            // .then(resp => {
+            //     this.name = resp.data;
+            // })
+            axios.post("/Vue/TestServlet2", {name:this.name})
+                .then(resp => {
+                    this.name = resp.data;
+                })
+        }
+    }
+});
+</script>
+</html>
