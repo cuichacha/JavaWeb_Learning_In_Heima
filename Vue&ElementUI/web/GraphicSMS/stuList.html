@@ -146,18 +146,19 @@
                 //修改分页查询的参数
                 this.pagination.pageSize = pageSize;
                 //重新执行查询
-                this.selectByPage();
+                this.findByPage();
             },
             //改变页码时执行的函数
             handleCurrentChange(pageNum) {
                 //修改分页查询的参数
                 this.pagination.currentPage = pageNum;
                 //重新执行查询
-                this.selectByPage();
+                this.findByPage();
             },
             showAddStu() {
                 //弹出窗口
                 this.dialogTableVisible4add = true;
+
             },
             resetForm(addForm) {
                 //双向绑定，输入的数据都赋值给了formData， 清空formData数据
@@ -176,7 +177,36 @@
                     birthday:row.birthday,
                     address:row.address,
                 }
+            },
+            findByPage() {
+                axios.get("/Vue/StudentServlet?action=findByPage&currentPage="+this.pagination.currentPage+"&pageSize=" + this.pagination.pageSize)
+                .then(resp => {
+                    let pageInfo = resp.data;
+                    this.tableData = pageInfo.list;
+
+                    this.pagination = {
+                        currentPage : pageInfo.pageNum,
+                        pageSize : pageInfo.pageSize,
+                        total: pageInfo.total,
+                        size : pageInfo.size
+                    }
+                });
+            },
+            addStu() {
+                axios.post("/Vue/StudentServlet?action=addStu", this.formData)
+                .then(resp => {
+                    let data = resp.data;
+                    if (data == true) {
+                        this.dialogTableVisible4add = false;
+                        this.findByPage();
+                    } else {
+                        alert("服务器忙，请稍后再试");
+                    }
+                })
             }
+        },
+        mounted:function () {
+            this.findByPage();
         }
     });
 </script>

@@ -1,5 +1,6 @@
 package GraphicSMS.utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,9 +36,19 @@ public class JsonUtil {
         return t;
     }
 
-    public static <T> T json2Bean(HttpServletRequest req, Class<T> tClass) {
+    public static <T> T request2Bean(HttpServletRequest req, Class<T> tClass) {
         String s = json2Str(req);
         T t = Str2Bean(s, tClass);
         return t;
+    }
+
+    public static String bean2Str(Object obj) {
+        String s = null;
+        try {
+            s = objectMapper.writeValueAsString(obj);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return s;
     }
 }

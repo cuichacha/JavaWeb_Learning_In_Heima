@@ -24,15 +24,15 @@ public class UserServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
 
-        User user = JsonUtil.json2Bean(req, User.class);
-        System.out.println(user);
+        User user = JsonUtil.request2Bean(req, User.class);
+//        System.out.println(user);
 //        BufferedReader reader = req.getReader();
 //        String s = reader.readLine();
 //        ObjectMapper objectMapper = new ObjectMapper();
 //        User user = objectMapper.readValue(s, User.class);
 //        System.out.println(user);
         User logInUser = userService.logIn(user);
-        System.out.println(logInUser);
+//        System.out.println(logInUser);
         if (logInUser != null) {
             req.getSession().setAttribute("user", logInUser);
             resp.getWriter().write("true");
