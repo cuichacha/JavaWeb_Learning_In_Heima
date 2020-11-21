@@ -29,4 +29,12 @@ public class StudentServiceImpl implements StudentService {
         MapperUtil.close();
         return result;
     }
+
+    @Override
+    public Integer updateStu(Student student, Integer id) {
+        StudentMapper mapper = MapperUtil.getMapper(StudentMapper.class, true);
+        Integer result = mapper.updateStu(student, id);
+        MapperUtil.close();
+        return result;
+    }
 }

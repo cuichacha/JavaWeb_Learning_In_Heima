@@ -7,4 +7,6 @@ public interface StudentService {
     public abstract PageInfo<Student> findByPage(Integer startPage, Integer pageSize);
 
     public abstract Integer addStu(Student student);
+
+    public abstract Integer updateStu(Student student, Integer id);
 }

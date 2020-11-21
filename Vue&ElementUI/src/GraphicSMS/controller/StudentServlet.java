@@ -5,6 +5,7 @@ import GraphicSMS.service.StudentService;
 import GraphicSMS.service.StudentServiceImpl;
 import GraphicSMS.utils.JsonUtil;
 import com.github.pagehelper.PageInfo;
+import org.junit.Test;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.sql.Date;
 
 @WebServlet("/StudentServlet")
 public class StudentServlet extends HttpServlet {
@@ -24,20 +26,20 @@ public class StudentServlet extends HttpServlet {
         resp.setContentType("text/html; charset=UTF-8");
         String action = req.getParameter("action");
 
-//        try {
-//            Method declaredMethod = this.getClass().getDeclaredMethod(action, HttpServletRequest.class, HttpServletResponse.class);
-//            declaredMethod.setAccessible(true);
-//            declaredMethod.invoke(this, req, resp);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Method declaredMethod = this.getClass().getDeclaredMethod(action, HttpServletRequest.class, HttpServletResponse.class);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(this, req, resp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        if ("findByPage".equals(action)) {
-            findByPage(req, resp);
-        }
-        if ("addStu".equals(action)) {
-            addStu(req, resp);
-        }
+//        if ("findByPage".equals(action)) {
+//            findByPage(req, resp);
+//        }
+//        if ("addStu".equals(action)) {
+//            addStu(req, resp);
+//        }
     }
 
     private void findByPage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -60,8 +62,27 @@ public class StudentServlet extends HttpServlet {
         }
     }
 
+    private void updateStu(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Student student = JsonUtil.request2Bean(req, Student.class);
+        Integer id = Integer.parseInt(student.getNumber());
+        Integer result = studentService.updateStu(student, id);
+        if (result > 0) {
+            resp.getWriter().write("true");
+        } else {
+            resp.getWriter().write("false");
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
+    }
+
+    @Test
+    public void test() {
+        Student student = new Student("12", "12", new Date(123456), "12");
+        Integer number = Integer.parseInt(student.getNumber());
+        Integer result = studentService.updateStu(student, number);
+        System.out.println(result);
     }
 }

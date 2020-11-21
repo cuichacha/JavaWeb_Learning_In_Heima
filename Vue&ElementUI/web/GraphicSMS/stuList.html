@@ -176,7 +176,8 @@
                     name:row.name,
                     birthday:row.birthday,
                     address:row.address,
-                }
+                };
+
             },
             findByPage() {
                 axios.get("/Vue/StudentServlet?action=findByPage&currentPage="+this.pagination.currentPage+"&pageSize=" + this.pagination.pageSize)
@@ -198,6 +199,18 @@
                     let data = resp.data;
                     if (data == true) {
                         this.dialogTableVisible4add = false;
+                        this.findByPage();
+                    } else {
+                        alert("服务器忙，请稍后再试");
+                    }
+                })
+            },
+            updateStu() {
+                axios.post("/Vue/StudentServlet?action=updateStu", this.editFormData)
+                .then(resp => {
+                    let data = resp.data;
+                    if (data == true) {
+                        this.dialogTableVisible4edit = false;
                         this.findByPage();
                     } else {
                         alert("服务器忙，请稍后再试");
